@@ -1,8 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿<div class="container-fluid text-center">
+    <h1 class="col-md-12 pgTitle">Welcome to the <br/><span>Weather</span> App</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <form id="searchForm" style="padding-top: 1rem;">
+                <input type="text" id="cityInput" placeholder="Enter your city..." autofocus>
+                <button class="btn searchBtn">
+                    <i class="fa-solid fa-magnifying-glass" style="font-size: 14px;"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
