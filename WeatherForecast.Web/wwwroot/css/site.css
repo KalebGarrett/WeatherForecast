@@ -65,3 +65,15 @@ span {
   background-color: #000;
   opacity: .4;
 }
+
+.infoBox {
+  border: 0;
+  outline: 0;
+  padding: 30px 25px;
+  border-radius: 30px;
+  width: 80%;
+  color: white;
+  background-color: #000;
+  opacity: .4;
+  font-size: 24px;
+}
