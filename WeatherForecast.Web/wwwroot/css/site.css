@@ -16,8 +16,13 @@ html {
   min-height: 100%;
 }
 
-.nav-footer-design {
-  background-color: #b0bdd6;
+.navbar {
+  background-color: #67acc7;
+  color: white;
+}
+
+.footer {
+  background-color: #67acc7;
   color: white;
 }
 

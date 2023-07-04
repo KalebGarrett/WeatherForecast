@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Mvc;
 using WeatherForecast.Web.Models;
 
@@ -12,10 +13,13 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    
     public IActionResult Index()
     {
         ViewData["Title"] = "Weather Forecast";
+        var model = new IndexViewModel();
+        string monthName = model.Month.ToString("MMMM");
+        ViewData["Month"] = monthName;
         return View();
     }
     
