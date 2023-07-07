@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <form id="search" style="padding-top: 1rem;">
-                <input type="text" id="cityInput" class="text-start" placeholder="Enter Location">
+                <input type="text" id="locationInput" class="text-start" placeholder="Enter Location">
                 <button id="searchBtn" class="btn searchBtn">
                     <i class="fa-solid fa-magnifying-glass" style="font-size: 14px;"></i>
                 </button>
@@ -15,20 +15,30 @@
 </div>
 <div class="container-fluid text-center infoBox">
     <div class="row">
+        <div class="col-sm-12 col-md-6 weatherIcon"></div>
         <div class="col-sm-12 col-md-6">
-            <i id="weatherIcon" class="fa-solid fa-cloud-sun-rain" style="color: #ffffff; font-size: 96px;"></i>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <h1 id="city">Orlando</h1>
+            <h1 id="location">US, Orlando</h1>
             <h3>@DateTime.Now.DayOfWeek @DateTime.Now.Day @ViewData["Month"] @DateTime.Now.Year</h3>
         </div>
     </div><br/>
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-12">
-            <p id="temp">Temperature: 83&degF</p>
-            <p id="windSpeed">Wind Speed: 7 mph</p>
-            <p id="pressure">Pressure: 29.77 inHg</p>
-            <p id="humidity">Humidity: 78%</p>
+            <div class="d-flex align-items-center justify-content-center">
+                <img class="iconDesign" src="img/thermometer.png" alt="Thermometer"/>
+                <p id="temp">Temperature: 83&deg;F</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <img class="iconDesign" src="img/wind.png" alt="Wind"/>
+                <p id="windSpeed">Wind Speed: 7 mph</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <img class="iconDesign" src="img/humidity.png" alt="Humidity gauge"/>
+                <p id="humidity">Humidity: 78%</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <img class="iconDesign" src="img/pressure-gauge.png" alt="Pressure gauge"/>
+                <p id="pressure">Pressure: 29.77 inHg</p>
+            </div>
         </div>
     </div>
 </div>

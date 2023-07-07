@@ -7,26 +7,52 @@
             url: apiUrl + city + `&appid=${apiKey}`,
             method: "GET",
             success: function (response) {
-                let convertToInHg = response.main.pressure / 33.864;
-                $("#city").text(response.name);
+                $(".infoBox").show();
+                $(".weatherIcon img").remove();
+                $(".weatherIcon").empty();
+
+                switch (response.weather[0].main) {
+                    case "Clear":
+                        $(".weatherIcon").prepend($("<img>", {id: 'clear', src: "img/forecast/clear.png", alt: "Clear"}));
+                        break;
+                    case "Clouds":
+                        $(".weatherIcon").prepend($("<img>", {id: 'clouds', src: "img/forecast/clouds.png", alt: "Clouds"}));
+                        break;
+                    case "Rain":
+                        $(".weatherIcon").prepend($("<img>", {id: 'rain', src: "img/forecast/rain.png", alt: "Rain"}));
+                        break;
+                    case "Drizzle":
+                        $(".weatherIcon").prepend($("<img>", {id: 'drizzle', src: "img/forecast/drizzle.png", alt: "Drizzle"}));
+                        break;
+                    case "Mist":
+                        $(".weatherIcon").prepend($("<img>", {id: 'mist', src: "img/forecast/mist.png", alt: "Mist"}));
+                        break;
+                }
+                
+                $("#location").text(`${response.sys.country}, ${response.name}`);
                 $("#temp").text("Temperature: " + Math.round(response.main.temp) + "°F");
                 $("#windSpeed").text("Wind Speed: " + Math.round(response.wind.speed) + " mph");
-                $("#pressure").text("Pressure: " + Math.round(convertToInHg * 100) / 100 + " inHg");
                 $("#humidity").text("Humidity: " + Math.round(response.main.humidity) + "%");
+
+                let convertToInHg = response.main.pressure / 33.864;
+                $("#pressure").text("Pressure: " + Math.round(convertToInHg * 100) / 100 + " inHg");
             },
             error: function () {
-                $("#city").empty().text("Error retrieving weather data.");
+                $(".infoBox").show();
+                $(".weatherIcon img").remove();
+                $(".weatherIcon").empty().text("Error retrieving weather data.")
+                $("#location").empty().text("Error retrieving weather data.");
                 $("#temp").empty().text("Error retrieving weather data.");
                 $("#windSpeed").empty().text("Error retrieving weather data.");
-                $("#pressure").empty().text("Error retrieving weather data.");
                 $("#humidity").empty().text("Error retrieving weather data");
+                $("#pressure").empty().text("Error retrieving weather data.");
             }
         });
     }
-    
+
     $("#searchBtn").click(function (e) {
         e.preventDefault();
-        const location = $("#cityInput").val();
+        const location = $("#locationInput").val();
         getWeatherData(location);
     });
 });
