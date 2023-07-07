@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     const apiKey = "9bc9380a770719c0b6d6795368251f9e";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
-    
+
     function getWeatherData(city) {
         $.ajax({
             url: apiUrl + city + `&appid=${apiKey}`,
@@ -9,7 +9,7 @@
             success: function (response) {
                 $(".infoBox").show();
                 $(".weatherIcon img").remove();
-                $(".weatherIcon").empty();
+                $(".weatherIconText").empty();
 
                 switch (response.weather[0].main) {
                     case "Clear":
@@ -36,11 +36,50 @@
                             alt: "Drizzle"
                         }));
                         break;
+                    case "Thunderstorm":
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'thunderstorm',
+                            src: "img/forecast/thunderstorm.png",
+                            alt: "Thunderstorm"
+                        }));
+                        break;
                     case "Mist":
-                        $(".weatherIcon").prepend($("<img>", {id: 'mist', src: "img/forecast/mist.png", alt: "Mist"}));
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'mist',
+                            src: "img/forecast/mist.png",
+                            alt: "Mist"
+                        }));
+                        break;
+                    case "Haze":
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'haze',
+                            src: "img/forecast/mist.png",
+                            alt: "Haze"
+                        }));
+                        break;
+                    case "Fog":
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'fog',
+                            src: "img/forecast/mist.png",
+                            alt: "Fog"
+                        }));
+                        break;
+                    case "Snow":
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'snow',
+                            src: "img/forecast/snow.png",
+                            alt: "Snow"
+                        }));
+                        break;
+                    case "Tornado":
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'tornado',
+                            src: "img/forecast/tornado.png",
+                            alt: "Tornado"
+                        }));
                         break;
                     default:
-                        $(".weatherIcon").text("No image data available.")
+                        $(".weatherIconText").text("No image data available.")
                         break;
                 }
 
@@ -55,7 +94,7 @@
             error: function () {
                 $(".infoBox").show();
                 $(".weatherIcon img").remove();
-                $(".weatherIcon").empty().text("Error retrieving weather data.")
+                $(".weatherIconText").empty().text("Error retrieving weather data.");
                 $("#location").empty().text("Error retrieving weather data.");
                 $("#temp").empty().text("Error retrieving weather data.");
                 $("#windSpeed").empty().text("Error retrieving weather data.");
