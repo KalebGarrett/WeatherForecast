@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     const apiKey = "9bc9380a770719c0b6d6795368251f9e";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
-
+    
     function getWeatherData(city) {
         $.ajax({
             url: apiUrl + city + `&appid=${apiKey}`,
@@ -13,22 +13,37 @@
 
                 switch (response.weather[0].main) {
                     case "Clear":
-                        $(".weatherIcon").prepend($("<img>", {id: 'clear', src: "img/forecast/clear.png", alt: "Clear"}));
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'clear',
+                            src: "img/forecast/clear.png",
+                            alt: "Clear"
+                        }));
                         break;
                     case "Clouds":
-                        $(".weatherIcon").prepend($("<img>", {id: 'clouds', src: "img/forecast/clouds.png", alt: "Clouds"}));
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'clouds',
+                            src: "img/forecast/clouds.png",
+                            alt: "Clouds"
+                        }));
                         break;
                     case "Rain":
                         $(".weatherIcon").prepend($("<img>", {id: 'rain', src: "img/forecast/rain.png", alt: "Rain"}));
                         break;
                     case "Drizzle":
-                        $(".weatherIcon").prepend($("<img>", {id: 'drizzle', src: "img/forecast/drizzle.png", alt: "Drizzle"}));
+                        $(".weatherIcon").prepend($("<img>", {
+                            id: 'drizzle',
+                            src: "img/forecast/drizzle.png",
+                            alt: "Drizzle"
+                        }));
                         break;
                     case "Mist":
                         $(".weatherIcon").prepend($("<img>", {id: 'mist', src: "img/forecast/mist.png", alt: "Mist"}));
                         break;
+                    default:
+                        $(".weatherIcon").text("No image data available.")
+                        break;
                 }
-                
+
                 $("#location").text(`${response.sys.country}, ${response.name}`);
                 $("#temp").text("Temperature: " + Math.round(response.main.temp) + "°F");
                 $("#windSpeed").text("Wind Speed: " + Math.round(response.wind.speed) + " mph");
