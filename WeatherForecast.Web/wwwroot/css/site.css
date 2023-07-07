@@ -60,6 +60,14 @@ span {
   color: white;
 }
 
+#locationInput:-webkit-autofill,
+#locationInput:-webkit-autofill:hover,
+#locationInput:-webkit-autofill:focus,
+#locationInput:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+  -webkit-text-fill-color: white !important;:
+}
+
 .searchBtn {
   border: 0;
   outline: 0;
