@@ -15,12 +15,13 @@
 </div>
 <div class="container-fluid text-center infoBox">
     <div class="row">
-        <div class="col-sm-12 col-md-6 pb-3 weatherIcon">
+        <div class="col-sm-12 col-md-6 weatherIcon pb-3">
             <h1 class="weatherIconText"></h1>
+            <h3 class="description"></h3>
         </div>
-        <div class="col-sm-12 col-md-6 pt-3">
+        <div class="col-sm-12 col-md-6">
             <h1 id="location">US, Orlando</h1>
-            <h3>@DateTime.Now.DayOfWeek @DateTime.Now.Day @ViewData["Month"] @DateTime.Now.Year</h3>
+            <h3 id="cityDate"></h3>
         </div>
     </div><br/>
     <div class="row">
