@@ -158,9 +158,9 @@
                 $("#location").text(`${response.sys.country}, ${response.name}`);
                 $("#cityDate").text(displayCityTime());
                 $("#temp").text("Temperature: " + Math.round(response.main.temp) + "°F");
+                $("#humidity").text("Air Humidity: " + Math.round(response.main.humidity) + "%");
                 $("#windSpeed").text("Wind Speed: " + Math.round(response.wind.speed) + " mph");
-                $("#humidity").text("Humidity: " + Math.round(response.main.humidity) + "%");
-
+               
                 let convertToInHg = response.main.pressure / 33.864;
                 $("#pressure").text("Pressure: " + Math.round(convertToInHg * 100) / 100 + " inHg");
             },
@@ -170,9 +170,10 @@
                 $(".weatherIconText").empty().text("Error retrieving weather data.");
                 $(".description").empty().text("Error retrieving weather data.");
                 $("#location").empty().text("Error retrieving weather data.");
+                $("#cityDate").empty().text("Error retrieving weather data.");
                 $("#temp").empty().text("Error retrieving weather data.");
+                $("#humidity").empty().text("Error retrieving weather data.");
                 $("#windSpeed").empty().text("Error retrieving weather data.");
-                $("#humidity").empty().text("Error retrieving weather data");
                 $("#pressure").empty().text("Error retrieving weather data.");
             }
         });
