@@ -66,7 +66,6 @@
                                 alt: "Clouds"
                             }));
                         }
-
                         break;
                     case "Rain":
                         $(".weatherIcon").prepend($("<img>", {id: 'rain', src: "img/forecast/rain.png", alt: "Rain"}));
@@ -148,8 +147,7 @@
                         $(".weatherIconText").text("No image data available.")
                         break;
                 }
-
-                //converts first letter of each word to a capital letter
+                
                 response.weather[0].description = response.weather[0].description.toLowerCase()
                     .split(" ").map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                     .join(" ");
@@ -160,7 +158,7 @@
                 $("#temp").text("Temperature: " + Math.round(response.main.temp) + "°F");
                 $("#humidity").text("Air Humidity: " + Math.round(response.main.humidity) + "%");
                 $("#windSpeed").text("Wind Speed: " + Math.round(response.wind.speed) + " mph");
-               
+
                 let convertToInHg = response.main.pressure / 33.864;
                 $("#pressure").text("Pressure: " + Math.round(convertToInHg * 100) / 100 + " inHg");
             },
