@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    const apiKey = "9bc9380a770719c0b6d6795368251f9e";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
     
     function getWeatherData(city) {
