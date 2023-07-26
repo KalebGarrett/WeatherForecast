@@ -19,8 +19,6 @@ public class HomeController : Controller
         var model = new IndexViewModel();
         var monthName = model.Month.ToString("MMMM");
         ViewData["Month"] = monthName;
-        var hour = model.Time.ToString("t");
-        ViewData["Time"] = hour;
         return View();
     }
 
